@@ -1,0 +1,35 @@
+---
+kind: pipeline
+type: docker
+name: refs
+trigger:
+  ref:
+    - "refs/tags/**"
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+  - name: log
+    image: busybox
+    commands:
+      - echo trigger/ref
+
+---
+kind: pipeline
+type: docker
+name: event
+trigger:
+  event:
+  - tag
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+  - name: log
+    image: busybox
+    commands:
+      - echo event
