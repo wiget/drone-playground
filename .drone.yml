@@ -40,6 +40,8 @@ name: main
 trigger:
   branch:
     - main
+  event:
+  - tag
 
 platform:
   os: linux
